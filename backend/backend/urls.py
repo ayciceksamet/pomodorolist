@@ -18,8 +18,9 @@ from django.urls import path, include
 from rest_framework import routers
 from pomodorolist import views
 
+router = routers.DefaultRouter()                 
+router.register(r'pomodorolists', views.PomodoroListView, 'pomodorolist') 
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), path('api/', include(router.urls))
 ]
-
-
